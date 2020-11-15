@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splash"
+    android:label="activity_splash"
+    app:startDestination="@id/splash_fragment">
+
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.splash.SplashFragment"
+        android:label="splash_fragment">
+
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/onboarding_fragment" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_HomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/home_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.home.HomeFragment"
+        android:label="home_fragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_RecordingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/recordings_fragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_LockPinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/lock_pin_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboarding_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.onboarding.OnboardingFragment"
+        android:label="onboarding_fragment">
+
+        <action
+            android:id="@+id/action_onboardingFragment_to_SafePinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/safe_pin_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/safe_pin_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.pin.SafePinFragment"
+        android:label="safe_pin_fragment">
+
+
+        <action
+            android:id="@+id/action_safeFragment_to_PanicPinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/panic_pin_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/panic_pin_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.pin.PanicPinFragment"
+        android:label="panic_pin_fragment">
+
+        <action
+            android:id="@+id/action_panicFragment_to_HomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/home_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recordings_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.recordings.RecordingsFragment"
+        android:label="recordings_fragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/lock_pin_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.pin.LockPinFragment"
+        android:label="lock_pin_fragment">
+
+        <action
+            android:id="@+id/action_lockFragment_to_SafePinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/safe_pin_fragment" />
+    </fragment>
+</navigation>

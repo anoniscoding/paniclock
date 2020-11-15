@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lock_pin"
+    android:label="activity_lock"
+    app:startDestination="@id/lock_pin_fragment">
+
+    <fragment
+        android:id="@+id/lock_pin_fragment"
+        android:name="com.anoniscoding.paniclock.ui.screens.pin.LockPinFragment"
+        android:label="lock_pin_fragment">
+    </fragment>
+</navigation>

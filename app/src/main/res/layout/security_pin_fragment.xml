@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorPrimary"
+    >
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/splash_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:drawablePadding="40dp"
+            android:text="@string/create_a_safe_pin_label"
+            android:textColor="@android:color/white"
+            />
+
+        <ImageView
+            android:id="@+id/help_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/title"
+            android:visibility="gone"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_question"
+            />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_goneMarginTop="80dp"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="8dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="@string/use_this_pin_to_unlock_nyour_phone_normally_label"
+            android:textColor="@android:color/white"
+            />
+
+        <LinearLayout
+            android:id="@+id/passcode_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="1"
+            android:rowCount="4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pin1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/color_purple_858893"
+                android:layout_marginEnd="20dp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pin2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/color_purple_858893"
+                android:layout_marginEnd="20dp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pin3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/color_purple_858893"
+                android:layout_marginEnd="20dp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/pin4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/color_purple_858893"
+                />
+        </LinearLayout>
+
+        <com.google.android.material.circularreveal.CircularRevealGridLayout
+            android:id="@+id/numericPad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:rowCount="4"
+            android:columnOrderPreserved="false"
+            android:alignmentMode="alignMargins"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            app:layout_constraintLeft_toLeftOf="@id/passcode_group"
+            app:layout_constraintRight_toRightOf="@id/passcode_group"
+            app:layout_constraintTop_toBottomOf="@+id/passcode_group"
+            android:layout_marginTop="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="1"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:id="@+id/button1"
+                style="@style/KeyPadTheme"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="15dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="2"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:id="@+id/button2"
+                style="@style/KeyPadTheme"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="3"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:id="@+id/button3"
+                style="@style/KeyPadTheme"
+                android:layout_marginBottom="15dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="4"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:id="@+id/button4"
+                style="@style/KeyPadTheme"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="5"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:id="@+id/button5"
+                style="@style/KeyPadTheme"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="15dp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="6"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:id="@+id/button6"
+                style="@style/KeyPadTheme"
+                android:layout_marginBottom="15dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="7"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:id="@+id/button7"
+                style="@style/KeyPadTheme"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="8"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:id="@+id/button8"
+                style="@style/KeyPadTheme"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="9"
+                android:layout_row="2"
+                android:layout_column="2"
+                android:id="@+id/button9"
+                style="@style/KeyPadTheme"
+                android:layout_width="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="0"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:id="@+id/button0"
+                style="@style/KeyPadTheme"
+                android:layout_width="wrap_content"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_row="3"
+                android:layout_column="2"
+                android:id="@+id/buttonDelete"
+                style="@style/KeyPadTheme"
+                android:drawableStart="@drawable/ic_arrow_left"
+                android:paddingStart="15dp"
+                />
+
+        </com.google.android.material.circularreveal.CircularRevealGridLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numericPad"
+            android:layout_marginTop="25dp"
+            style="@style/ActionButtonTheme"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/save_pin_label"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</RelativeLayout>

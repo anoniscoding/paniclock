@@ -1,0 +1,151 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSdkVersion"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
+
+    defaultConfig {
+        applicationId "com.anoniscoding.paniclock"
+        minSdkVersion globalConfiguration["minSdkVersion"]
+        targetSdkVersion globalConfiguration["targetSdkVersion"]
+        versionCode 7
+        versionName "1.0.1"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "com.oozou.pokemon.CustomTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    def mobileUiDependencies = rootProject.ext.mobileUiDependencies
+    def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
+    def domainDependencies = rootProject.ext.domainDependencies
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def cacheDependencies = rootProject.ext.cacheDependencies
+    def remoteDependencies = rootProject.ext.remoteDependencies
+
+    implementation remoteDependencies.rxKotlin
+    implementation remoteDependencies.gson
+    implementation remoteDependencies.okHttp
+    implementation remoteDependencies.okHttpLogger
+    implementation remoteDependencies.retrofit
+    implementation remoteDependencies.retrofitConverter
+    implementation remoteDependencies.retrofitAdapter
+    implementation remoteDependencies.jsonConverter
+
+    compileOnly cacheDependencies.javaxAnnotation
+    implementation cacheDependencies.kotlin
+    implementation cacheDependencies.kotlinreflect
+    implementation cacheDependencies.javaxInject
+    implementation cacheDependencies.rxKotlin
+    implementation cacheDependencies.roomRuntime
+    implementation cacheDependencies.roomRxJava
+    kapt cacheDependencies.roomCompiler
+
+    implementation presentationDependencies.javaxInject
+    implementation presentationDependencies.archRuntime
+    implementation presentationDependencies.archExtensions
+    implementation presentationDependencies.navigationFragment
+    kapt presentationDependencies.archCompiler
+    implementation presentationDependencies.hiltAndroid
+    kapt presentationDependencies.hiltAndroidCompiler
+    implementation presentationDependencies.hiltLifecycleViewmodel
+    kapt presentationDependencies.hiltCompiler
+    implementation presentationDependencies.rxJava
+
+    implementation domainDependencies.javaxAnnotation
+    implementation domainDependencies.javaxInject
+    implementation domainDependencies.rxKotlin
+    implementation domainDependencies.kotlin
+    implementation domainDependencies.kotlinreflect
+
+    implementation mobileUiDependencies.constraintLayout
+    implementation mobileUiDependencies.javaxAnnotation
+    implementation mobileUiDependencies.javaxInject
+    implementation mobileUiDependencies.kotlin
+    implementation mobileUiDependencies.kotlinreflect
+    implementation mobileUiDependencies.rxKotlin
+    implementation mobileUiDependencies.rxAndroid
+    implementation mobileUiDependencies.gson
+
+    implementation mobileUiDependencies.lifecycleRuntime
+    implementation mobileUiDependencies.lifecycleExtensions
+    implementation mobileUiDependencies.lifecyleViewModel
+
+    implementation mobileUiDependencies.hiltAndroid
+    kapt mobileUiDependencies.hiltAndroidCompiler
+    implementation mobileUiDependencies.hiltLifecycleViewmodel
+    kapt mobileUiDependencies.hiltCompiler
+
+    kapt mobileUiDependencies.lifecycleCompiler
+    kapt mobileUiDependencies.androidxLegacy
+    implementation mobileUiDependencies.navigationFragment
+    implementation mobileUiDependencies.navigationUi
+    implementation mobileUiDependencies.recylerView
+    implementation mobileUiDependencies.materialLibrary
+    implementation mobileUiDependencies.cardView
+    implementation mobileUiDependencies.roomRxJava
+    implementation mobileUiDependencies.appCompact
+    implementation mobileUiDependencies.okHttp
+    implementation mobileUiDependencies.shimmer
+
+    testImplementation mobileUiTestDependencies.junit
+    testImplementation mobileUiTestDependencies.assertj
+
+    // Instrumentation test dependencies
+    // Core library
+    androidTestImplementation mobileUiTestDependencies.androidxTestCore
+    androidTestImplementation mobileUiTestDependencies.androidxTestCoreKt
+
+    debugImplementation mobileUiTestDependencies.fragmentTesting
+    androidTestImplementation mobileUiTestDependencies.mockitoCore
+    androidTestImplementation mobileUiTestDependencies.mockitoAndroid
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation mobileUiTestDependencies.androidRunner
+    androidTestImplementation mobileUiTestDependencies.androidRules
+
+    // Assertions
+    androidTestImplementation mobileUiTestDependencies.androidAssertionJunit
+    androidTestImplementation mobileUiTestDependencies.androidAssertionTruth
+    androidTestImplementation mobileUiTestDependencies.googleAssertionTruth
+
+    // Espresso dependencies
+    androidTestImplementation mobileUiTestDependencies.espressoCore
+    androidTestImplementation mobileUiTestDependencies.espressoContrib
+    androidTestImplementation mobileUiTestDependencies.espressoIntents
+    androidTestImplementation mobileUiTestDependencies.espressoAccessiblity
+    androidTestImplementation mobileUiTestDependencies.expressonIdlingConcurrent
+    androidTestImplementation mobileUiTestDependencies.expressonIdlingResource
+
+    //Hilt
+    androidTestImplementation  mobileUiTestDependencies.hiltAndroidTest
+    kaptAndroidTest mobileUiTestDependencies.hiltAndroidCompiler
+}
+
+kapt {
+    correctErrorTypes true
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_the_panic_pin_to_unlock_your_phone_nwhen_you_feel_in_danger_it_will_label"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:lineSpacingExtra="8dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/video_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/record_and_upload_one_minute_video_and_audio_to_our_servers_label"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:drawableStart="@drawable/ic_video_icon"
+        android:drawablePadding="12dp"
+        android:layout_marginTop="55dp"
+        android:lineSpacingExtra="8dp"
+        android:textSize="16sp"
+        android:textColor="#545761" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/location_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_your_precise_location_with_a_distress_message_to_all_emergency_contacts_label"
+        app:layout_constraintTop_toBottomOf="@+id/video_desc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:drawableStart="@drawable/ic_location_icon"
+        android:drawablePadding="12dp"
+        android:layout_marginTop="31dp"
+        android:lineSpacingExtra="8dp"
+        android:textSize="16sp"
+        android:textColor="#545761" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/okay_button"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location_desc"
+        android:layout_marginTop="40dp"
+        style="@style/ActionButtonTheme"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/okay_label"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

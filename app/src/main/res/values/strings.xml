@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PanicLock</string>
+    <string name="paniclock_is_a_secure_lockscreen_app_that_alerts_your_loved_ones_when_you_re_in_danger_and_records_your_interactions_in_unsafe_situations_label">PanicLock is a secure lockscreen app that alerts your loved ones when you’re in danger and records your interactions in unsafe situations</string>
+    <string name="create_a_safe_pin_label">CREATE A SAFE PIN</string>
+    <string name="use_this_pin_to_unlock_nyour_phone_normally_label">Use this PIN to unlock \nyour phone normally</string>
+    <string name="save_pin_label">SAVE PIN</string>
+    <string name="use_the_panic_pin_to_unlock_your_phone_nwhen_you_feel_in_danger_it_will_label">Use the Panic pin to unlock your phone \nwhen you feel in danger, it will:</string>
+    <string name="record_and_upload_one_minute_video_and_audio_to_our_servers_label">Record and upload one minute video and audio to our servers</string>
+    <string name="send_your_precise_location_with_a_distress_message_to_all_emergency_contacts_label">Send your precise location with a distress message to all emergency contacts</string>
+    <string name="okay_label">OKAY</string>
+    <string name="your_paniclock_label">Your PanicLock</string>
+    <string name="recordings_label">Recordings</string>
+</resources>
