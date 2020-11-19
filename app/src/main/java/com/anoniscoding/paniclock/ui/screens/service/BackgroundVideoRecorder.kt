@@ -2,26 +2,25 @@ package com.anoniscoding.paniclock.ui.screens.service
 
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.PixelFormat
 import android.hardware.Camera
-import android.hardware.camera2.CameraCharacteristics
-import android.hardware.camera2.CameraManager
-import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.media.CamcorderProfile
 import android.media.MediaRecorder
-import android.os.*
-import android.view.*
+import android.os.Environment
+import android.os.Handler
+import android.os.IBinder
+import android.util.Log
+import android.view.SurfaceHolder
+import android.view.SurfaceView
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.anoniscoding.paniclock.domain.repositories.UserRepository
 import com.anoniscoding.paniclock.models.CachedVideoInfo
-import com.anoniscoding.paniclock.ui.screens.service.getParams
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.IOException
@@ -61,7 +60,7 @@ class BackgroundVideoRecorder: Service(), SurfaceHolder.Callback {
     private fun initRecorder() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_GRANTED) {
-            mCamera = Camera.open(1)
+            mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT)
             mCamera?.unlock()
             recorder?.setPreviewDisplay(surfaceView?.holder?.surface)
             recorder?.setCamera(mCamera)
@@ -101,8 +100,7 @@ class BackgroundVideoRecorder: Service(), SurfaceHolder.Callback {
 
     private fun startCountDownToEndRecording() {
         Handler().postDelayed({
-            recorder?.stop()
-            recorder?.release()
+            release()
             recording = false
             val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
             videoInfo.apply { 
@@ -142,13 +140,20 @@ class BackgroundVideoRecorder: Service(), SurfaceHolder.Callback {
     override fun surfaceChanged(p0: SurfaceHolder, p1: Int, p2: Int, p3: Int) {}
 
     override fun surfaceDestroyed(p0: SurfaceHolder) {
-        if (recording) {
-            recorder?.stop()
-            recording = false
-        }
-        recorder?.release()
-        mCamera?.release()
+        release()
         stopSelf()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        release()
+    }
+
+    private fun release() {
+        recorder?.stop()
+        recorder?.release()
+        mCamera?.stopPreview()
+        mCamera?.release()
     }
 
     override fun surfaceCreated(p0: SurfaceHolder) {
